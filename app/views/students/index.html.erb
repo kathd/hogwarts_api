@@ -1,0 +1,7 @@
+<% @students.each do |student|%>
+  <h3><%= student.first_name %> <%= student.last_name %></h3>
+  <p>from HOUSE <b><%= student.original_house.upcase %></b></p>
+  <p>was born on <%= student.birthdate %></p>
+  <p>Favorite Character: <%= student.favorite_character %></p>
+  <br><br>
+<% end %>
