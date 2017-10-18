@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
-    render "index.json.jbuilder"
+    # render "index.json.jbuilder"
   end
 
   def show

@@ -1,4 +1,4 @@
-class V2::StudentsController < ApplicationController
+class Api::V1::StudentsController < ApplicationController
 
   def index
     @students = Student.all
@@ -11,14 +11,18 @@ class V2::StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(
+    @student = Student.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       birthdate: params[:birthdate],
       original_house: params[:original_house],
       favorite_character: params[:favorite_character]
     )
-    render "show.json.jbuilder"
+    if @student.save
+      render "show.json.jbuilder"
+    else
+      render json: { errors: @student.errors.full_messages }, status: 422 
+    end
   end
 
   def update
@@ -39,6 +43,5 @@ class V2::StudentsController < ApplicationController
     @students = Student.all
     render "index.json.jbuilder"
   end
-
 
 end

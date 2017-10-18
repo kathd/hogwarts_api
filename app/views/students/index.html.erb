@@ -1,7 +1,19 @@
-<% @students.each do |student|%>
-  <h3><%= student.first_name %> <%= student.last_name %></h3>
-  <p>from HOUSE <b><%= student.original_house.upcase %></b></p>
-  <p>was born on <%= student.birthdate %></p>
-  <p>Favorite Character: <%= student.favorite_character %></p>
-  <br><br>
-<% end %>
+<div id="app">
+  <ul>
+    <li v-for="error in errors">{{ error }}</li>
+  </ul>
+
+  <h2>Add New Student:</h2>
+  <div>
+    First Name: <input v-model="newStudentFirstName">
+    Last Name: <input v-model="newStudentLastName">
+    House: <input v-model="newStudentOriginalHouse">
+    <button v-on:click="addStudent()">Add Student</button>
+  </div>
+
+  <div v-for="student in students">
+    <h3>{{ student.full_name }}</h3>
+    <p>from {{ student.original_house }}</p>
+
+  </div>
+</div>

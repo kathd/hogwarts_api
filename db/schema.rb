@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928211125) do
+ActiveRecord::Schema.define(version: 20171003035910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20170928211125) do
     t.date "birthdate"
     t.string "favorite_character"
     t.string "original_house"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

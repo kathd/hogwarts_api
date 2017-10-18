@@ -1,4 +1,4 @@
-class V1::StudentsController < ApplicationController
+class Api::V2::StudentsController < ApplicationController
 
   def index
     @students = Student.all
@@ -39,5 +39,6 @@ class V1::StudentsController < ApplicationController
     @students = Student.all
     render "index.json.jbuilder"
   end
+
 
 end
